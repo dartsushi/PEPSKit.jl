@@ -76,7 +76,6 @@ function fixedpoint(
             ignore_derivatives() do
                 alg.reuse_env && update!(envs, envs´)
             end
-            println("E = $E")
             return costfun(ψ, envs´, H)
         end
         # withgradient returns tuple of gradients `g`
