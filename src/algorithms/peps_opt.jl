@@ -66,7 +66,6 @@ function fixedpoint(
         (ψ₀, env₀), alg.optimizer; retract=my_retract, inner=my_inner
     ) do (peps, envs)
         E, g = withgradient(peps) do ψ
-            println("E=$E")
             envs´ = hook_pullback(
                 leading_boundary,
                 envs,
@@ -77,6 +76,7 @@ function fixedpoint(
             ignore_derivatives() do
                 alg.reuse_env && update!(envs, envs´)
             end
+            println("E = $E")
             return costfun(ψ, envs´, H)
         end
         # withgradient returns tuple of gradients `g`
