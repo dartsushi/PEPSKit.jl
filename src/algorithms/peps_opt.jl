@@ -79,7 +79,7 @@ function fixedpoint(
             return costfun(ψ, envs´, H)
         end
         # withgradient returns tuple of gradients `g`
-        @show E
+        println("E=$E")
         return E, only(g)
     end
     return (; peps, env, E, ∂E, info)
